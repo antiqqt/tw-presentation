@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- #1 -->
+        <section
+          data-background-gradient="linear-gradient(to left, #feac5e, #c779d0, #4bc0c8)"
+        >
+          <section>
+            <img src="./assets/tailwind-css-logo.svg" alt="tw-logo" />
+          </section>
+          <section>
+            <ul>
+              <h4>Goals for today:</h4>
+              <br />
+              <li>Introduce you to Tailwind</li>
+              <li>Encourage you to try it one day</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- #2 -->
+        <section
+          data-background-gradient="linear-gradient(to left, #feac5e, #c779d0, #4bc0c8)"
+        >
+          <section><h3>What is Tailwind?</h3></section>
+          <section>
+            <p>
+              "...A utility-first CSS-framework aimed at rapid website
+              development. In essence, it provides thousands of tiny classes to
+              use directly in HTML markup."
+            </p>
+
+            <a href="https://tailwindcss.com/">Tailwind website</a>
+          </section>
+        </section>
+
+        <!-- #3 -->
+        <section
+          data-background-gradient="linear-gradient(to left, #feac5e, #c779d0, #4bc0c8)"
+        >
+          Code Examples
+          <section>
+            <pre><code data-trim data-noescape>
+							<script type="text/template">
+								<div class="chat-notification">
+									<img class="chat-notification-logo" src="/img/logo.svg">
+									<h4 class="chat-notification-title"></h4>
+									<p class="chat-notification-message"></p>
+								</div>							
+							</script>
+						</code></pre>
+          </section>
+
+          <section>
+            <ul>
+              <h3>Cons of plain CSS:</h3>
+              <li>Naming classes is hard and tedious.</li>
+              <li>
+                Large CSS codebases are notoriously difficult to maintain.
+              </li>
+              <li>
+                Things like Bootstrap or MUI are great helpers, but they lack in
+                flexibility.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <pre><code data-trim data-noescape>
+							<script type="text/template">
+								<div class="flex items-center max-w-sm mx-auto p-6 bg-white rounded">
+									<img class="h-12 w-12" src="/img/logo.svg">
+									<h4 class="text-xl font-medium text-black"></h4>
+									<p class="text-slate-500"></p>
+								</div>													
+							</script>
+						</code></pre>
+          </section>
+
+          <section>
+            Tailwind takes a more
+            <em>functional</em> approach of <em>composing</em> multiple
+            utility-classes to create one single component.
+          </section>
+
+          <section>
+            <ul>
+              <h3>This way has multiple advantages:</h3>
+              <li>No more wasting time and energy inventing class names.</li>
+              <li>Your CSS stops growing.</li>
+              <li>Making changes feels safer.</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- #4 -->
+        <section
+          data-background-gradient="linear-gradient(to left, #feac5e, #c779d0, #4bc0c8)"
+        >
+          <section>
+            So these are the basics of Tailwind, but it has so much more nice
+            things to offer besides that.
+          </section>
+
+          <section>
+            <h3>States</h3>
+            <br />
+            <p>
+              Setting state is extremely easy in Tailwind. You just add a
+              corresponding prefix to class:
+            </p>
+            <pre><code data-trim data-noescape>
+							<script type="text/template">
+								<button class="bg-sky-500 hover:bg-sky-700 ...">
+									Save changes
+								 </button>														 
+							</script>
+						</code></pre>
+          </section>
+
+          <section>
+            <h3>States</h3>
+            <br />
+            <p>The list of prefixes includes:</p>
+            <ul>
+              <li>Pseudo-classes.</li>
+              <li>Pseudo-elements.</li>
+              <li>Attribute selectors.</li>
+              <li>Media queries.</li>
+              <li>Dark mode.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>States</h3>
+            <br />
+            <p>These modifiers can also be stacked together, like this:</p>
+            <pre><code data-trim data-noescape>
+							<script type="text/template">
+								<button class="dark:md:hover:bg-fuchsia-600 ...">
+									Save changes
+								</button>																						 
+							</script>
+						</code></pre>
+          </section>
+
+          <section>
+            <h3>Reusing styles</h3>
+            <br />
+            <p>
+              If, for some reason you still need semantic classes, you can
+              create them with @apply feature:
+            </p>
+            <pre><code data-trim data-noescape>
+							@tailwind base;
+							@tailwind components;
+							@tailwind utilities;
+
+							@layer components {
+								.btn-primary {
+									@apply py-2 px-4 bg-blue-500 text-white font-semibold 
+									rounded-lg shadow-md hover:bg-blue-700 focus:outline-none
+									focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+								}
+							}									 
+					</code></pre>
+          </section>
+
+          <section>
+            <h3>Purge</h3>
+            <br />
+            <img src="./assets/purge-tw.png" alt="" />
+          </section>
+
+          <section>
+            <h3>Official intellisense tool</h3>
+            <br />
+            <img src="./assets/tailwind-intellisense.png" alt="" />
+          </section>
+
+          <section>
+            <h3>Official intellisense tool</h3>
+            <br />
+            <img src="./assets/tailwind-hover-preview.jpg" alt="" />
+          </section>
+        </section>
+
+        <!-- #5 -->
+        <section
+          data-background-gradient="linear-gradient(to left, #feac5e, #c779d0, #4bc0c8)"
+        >
+          <section>
+            <h3>Summary</h3>
+            <br />
+            <p>Pros:</p>
+            <ul>
+              <li>Rapid element styling.</li>
+              <li>Reusability.</li>
+              <li>One unified design system.</li>
+              <li>Minified production bundle.</li>
+              <li>Intellisense.</li>
+              <li>Overall simplicity.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Summary</h3>
+            <br />
+            <p>Cons:</p>
+            <ul>
+              <li>Classes aren`t semantic anymore.</li>
+              <li>
+                Arguably, it looks gross. Especially when component has 10+
+                classes on it.
+              </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
